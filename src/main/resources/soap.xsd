@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema attributeFormDefault="unqualified"
+           elementFormDefault="qualified"
+           targetNamespace="http://www.datavantagecorp.com/xstore/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="TaxLocationId">
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                <xs:enumeration value="US"/>
+                <xs:enumeration value="CA"/>
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>
+    <xs:element name="TaxGroupId" type="xs:string"/>
+    <xs:element name="UnitOfMeasureCode" type="xs:string"/>
+    <xs:element name="ScannedItemID">
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                <xs:enumeration value="000003825403"/>
+                <xs:enumeration value="000003813282"/>
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>
+    <xs:element name="PercentageOfItem" type="xst:PercentageOfItemType"
+                xmlns:xst="http://www.datavantagecorp.com/xstore/"/>
+    <xs:element name="LineItemProperty" type="xst:LineItemPropertyType"
+                xmlns:xst="http://www.datavantagecorp.com/xstore/"/>
+    <xs:element name="Contact" type="xs:string"/>
+    <xs:element name="ContactFlag" type="xs:string"/>
+    <xs:element name="GuestProperty" type="xst:GuestPropertyType" xmlns:xst="http://www.datavantagecorp.com/xstore/"/>
+    <xs:element name="CustomerID" type="xs:string"/>
+    <xs:element name="OrganizationID" type="xs:string"/>
+    <xs:element name="CashDrawerID" type="xs:string"/>
+    <xs:element name="PosTransactionProperties" type="xst:PosTransactionPropertiesType"
+                xmlns:xst="http://www.datavantagecorp.com/xstore/"/>
+    <xs:attribute name="AppVersion" type="xs:string"/>
+    <xs:attribute name="TransactionType" type="xs:string"/>
+    <xs:attribute name="VoidFlag" type="xs:string"/>
+    <xs:attribute name="ChangeFlag" type="xs:string"/>
+    <xs:complexType name="PosTransactionPropertiesType">
+        <xs:sequence>
+            <xs:element type="xs:string" name="PosTransactionPropertyCode"/>
+            <xs:element type="xs:string" name="PosTransactionPropertyValue"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="PercentageOfItemType">
+        <xs:sequence>
+            <xs:element type="xs:string" name="AssociateID"/>
+            <xs:element type="xs:string" name="Percentage"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="LineItemPropertyType">
+        <xs:sequence>
+            <xs:element type="xs:string" name="LineItemPropertyCode"/>
+            <xs:element type="xs:string" name="LineItemPropertyType"/>
+            <xs:element type="xs:string" name="LineItemPropertyValue">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:enumeration value="3BD0000000D933E2903F44E9"/>
+                        <xs:enumeration value="3BD0000000D933E6903F44E9"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="PropertyType">
+        <xs:sequence>
+            <xs:element type="xs:string" name="PropertyCode"/>
+            <xs:element type="xs:string" name="PropertyType"/>
+            <xs:element type="xs:string" name="PropertyBoolean"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="GuestPropertyType">
+        <xs:sequence>
+            <xs:element type="xst:PropertyType" name="Property" xmlns:xst="http://www.datavantagecorp.com/xstore/"/>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.datavantagecorp.com/xstore/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="TaxLocationId" type="xs:string"/>
+    <xs:element name="TaxGroupId" type="xs:float"/>
+    <xs:element name="UnitOfMeasureCode" type="xs:string"/>
+    <xs:element name="ScannedItemID" type="xs:float"/>
+    <xs:element name="PercentageOfItem">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element type="xs:float" name="AssociateID"/>
+                <xs:element type="xs:float" name="Percentage"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="LineItemProperty">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element type="xs:string" name="LineItemPropertyCode"/>
+                <xs:element type="xs:string" name="LineItemPropertyType"/>
+                <xs:element type="xs:string" name="LineItemPropertyValue"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="Contact" type="xs:string"/>
+    <xs:element name="ContactFlag" type="xs:string"/>
+    <xs:element name="GuestProperty">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="Property">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element type="xs:string" name="PropertyCode"/>
+                            <xs:element type="xs:string" name="PropertyType"/>
+                            <xs:element type="xs:string" name="PropertyBoolean"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="CustomerID" type="xs:string"/>
+    <xs:element name="OrganizationID" type="xs:float"/>
+    <xs:element name="CashDrawerID" type="xs:float"/>
+    <xs:element name="PosTransactionProperties">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element type="xs:string" name="PosTransactionPropertyCode"/>
+                <xs:element type="xs:string" name="PosTransactionPropertyValue"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:attribute name="AppVersion" type="xs:string"/>
+    <xs:attribute name="TransactionType" type="xs:string"/>
+    <xs:attribute name="VoidFlag" type="xs:string"/>
+    <xs:attribute name="ChangeFlag" type="xs:string"/>
+</xs:schema>
