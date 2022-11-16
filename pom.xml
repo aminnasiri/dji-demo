@@ -89,9 +89,9 @@
     <dependency>
       <groupId>ai.djl.pytorch</groupId>
       <artifactId>pytorch-native-cpu</artifactId>
-      <classifier>osx-x86_64</classifier>
-      <version>1.12.1</version>
+      <classifier>linux-x86_64</classifier>
       <scope>runtime</scope>
+      <version>1.12.1</version>
     </dependency>
     <dependency>
       <groupId>ai.djl.pytorch</groupId>
