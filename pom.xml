@@ -88,8 +88,8 @@
     </dependency>
     <dependency>
       <groupId>ai.djl.pytorch</groupId>
-      <artifactId>pytorch-native-cu102</artifactId>
-      <classifier>linux-x86_64</classifier>
+      <artifactId>pytorch-native-cpu</artifactId>
+      <classifier>osx-x86_64</classifier>
       <version>1.12.1</version>
       <scope>runtime</scope>
     </dependency>
