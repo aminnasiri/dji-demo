@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified"
+           targetNamespace="http://www.nrf-arts.org/IXRetail/namespace/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="POSLog" type="nam:POSLogType" xmlns:nam="http://www.nrf-arts.org/IXRetail/namespace/"/>
+    <xs:complexType name="MerchandiseHierarchyType">
+        <xs:simpleContent>
+            <xs:extension base="xs:string">
+                <xs:attribute type="xs:string" name="Level" use="optional"/>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+    <xs:complexType name="AssociateType">
+        <xs:sequence>
+            <xs:element type="xs:string" name="AssociateID"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="TaxType">
+        <xs:sequence>
+            <xs:element type="xs:string" name="TaxAuthority"/>
+            <xs:element name="TaxAuthorityType">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:enumeration value="DISTRICT"/>
+                        <xs:enumeration value="COUNTY"/>
+                        <xs:enumeration value="STATE"/>
+                        <xs:enumeration value="DISTRICT"/>
+                        <xs:enumeration value="COUNTY"/>
+                        <xs:enumeration value="STATE"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="TaxableAmount">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:enumeration value="128.00"/>
+                        <xs:enumeration value="0.00"/>
+                        <xs:enumeration value="256.00"/>
+                        <xs:enumeration value="0.00"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="Amount">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:enumeration value="0.640000"/>
+                        <xs:enumeration value="1.280000"/>
+                        <xs:enumeration value="1.600000
+                        "/>
+                        <xs:enumeration value="7.680000"/>
+                        <xs:enumeration value="0.000000"/>
+                        <xs:enumeration value="2.560000"/>
+                        <xs:enumeration value="1.280000"/>
+                        <xs:enumeration value="3.200000"/>
+                        <xs:enumeration value="15.360000"/>
+                        <xs:enumeration value="0.000000"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="Percent">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:enumeration value="0.005000"/>
+                        <xs:enumeration value="0.010000"/>
+                        <xs:enumeration value="0.012500"/>
+                        <xs:enumeration value="0.060000"/>
+                        <xs:enumeration value="0.000000"/>
+                        <xs:enumeration value="0.010000"/>
+                        <xs:enumeration value="0.005000"/>
+                        <xs:enumeration value="0.012500"/>
+                        <xs:enumeration value="0.060000"/>
+                        <xs:enumeration value="0.000000"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element ref="xst:TaxLocationId" xmlns:xst="http://www.datavantagecorp.com/xstore/"/>
+            <xs:element ref="xst:TaxGroupId" xmlns:xst="http://www.datavantagecorp.com/xstore/"/>
+        </xs:sequence>
+        <xs:attribute type="xs:string" name="TaxType" use="optional"/>
+        <xs:attribute ref="xst:VoidFlag" xmlns:xst="http://www.datavantagecorp.com/xstore/"/>
+    </xs:complexType>
+    <xs:complexType name="SaleType">
+        <xs:sequence>
+            <xs:element name="ItemID">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:enumeration value="3825403"/>
+                        <xs:enumeration value="3813282"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="Description">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:enumeration value="ABC Pant CAM 34"/>
+                        <xs:enumeration value="ABC Pant CAM 36"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element type="xs:string" name="RegularSalesUnitPrice"/>
+            <xs:element type="xs:string" name="ActualSalesUnitPrice"/>
+            <xs:element type="xs:string" name="ExtendedAmount"/>
+            <xs:element type="xs:string" name="Quantity"/>
+            <xs:element ref="xst:UnitOfMeasureCode" xmlns:xst="http://www.datavantagecorp.com/xstore/"/>
+            <xs:element type="nam:MerchandiseHierarchyType" name="MerchandiseHierarchy" maxOccurs="unbounded"
+                        minOccurs="0" xmlns:nam="http://www.nrf-arts.org/IXRetail/namespace/"/>
+            <xs:element ref="xst:ScannedItemID" xmlns:xst="http://www.datavantagecorp.com/xstore/"/>
+            <xs:element type="xs:string" name="GiftReceiptFlag"/>
+            <xs:element type="nam:AssociateType" name="Associate"
+                        xmlns:nam="http://www.nrf-arts.org/IXRetail/namespace/"/>
+            <xs:element ref="xst:PercentageOfItem" xmlns:xst="http://www.datavantagecorp.com/xstore/"/>
+            <xs:element type="nam:TaxType" name="Tax" maxOccurs="unbounded" minOccurs="0"
+                        xmlns:nam="http://www.nrf-arts.org/IXRetail/namespace/"/>
+            <xs:element ref="xst:LineItemProperty" xmlns:xst="http://www.datavantagecorp.com/xstore/"/>
+        </xs:sequence>
+        <xs:attribute type="xs:string" name="ItemType" use="optional"/>
+    </xs:complexType>
+    <xs:complexType name="LineItemType">
+        <xs:sequence>
+            <xs:element type="xs:string" name="SequenceNumber"/>
+            <xs:element type="xs:string" name="BeginDateTime"/>
+            <xs:element type="xs:string" name="EndDateTime"/>
+            <xs:element type="nam:SaleType" name="Sale" minOccurs="0"
+                        xmlns:nam="http://www.nrf-arts.org/IXRetail/namespace/"/>
+            <xs:element type="nam:TenderType" name="Tender" minOccurs="0"
+                        xmlns:nam="http://www.nrf-arts.org/IXRetail/namespace/"/>
+            <xs:element type="nam:TaxType" name="Tax" minOccurs="0"
+                        xmlns:nam="http://www.nrf-arts.org/IXRetail/namespace/"/>
+        </xs:sequence>
+        <xs:attribute type="xs:string" name="EntryMethod" use="optional"/>
+        <xs:attribute type="xs:string" name="VoidFlag" use="optional"/>
+    </xs:complexType>
+    <xs:complexType name="AmountType">
+        <xs:simpleContent>
+            <xs:extension base="xs:string">
+                <xs:attribute type="xs:string" name="Currency" use="optional"/>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+    <xs:complexType name="TenderType">
+        <xs:sequence>
+            <xs:element type="xs:string" name="TenderID"/>
+            <xs:element type="nam:AmountType" name="Amount" xmlns:nam="http://www.nrf-arts.org/IXRetail/namespace/"/>
+        </xs:sequence>
+        <xs:attribute type="xs:string" name="TenderType" use="optional"/>
+        <xs:attribute type="xs:string" name="TypeCode" use="optional"/>
+        <xs:attribute ref="xst:ChangeFlag" xmlns:xst="http://www.datavantagecorp.com/xstore/"/>
+    </xs:complexType>
+    <xs:complexType name="TotalType">
+        <xs:simpleContent>
+            <xs:extension base="xs:string">
+                <xs:attribute type="xs:string" name="TotalType"/>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+    <xs:complexType name="AddressType">
+        <xs:sequence>
+            <xs:element type="xs:string" name="AddressLine" minOccurs="0"/>
+            <xs:element type="xs:string" name="AddressLine1" minOccurs="0"/>
+            <xs:element type="xs:string" name="ApartmentNumber" minOccurs="0"/>
+            <xs:element type="xs:string" name="City" minOccurs="0"/>
+            <xs:element type="xs:string" name="State" minOccurs="0"/>
+            <xs:element type="xs:string" name="Territory" minOccurs="0"/>
+            <xs:element type="xs:string" name="PostalCode" minOccurs="0"/>
+            <xs:element type="xs:string" name="Country" minOccurs="0"/>
+            <xs:element ref="xst:Contact" minOccurs="0" xmlns:xst="http://www.datavantagecorp.com/xstore/"/>
+        </xs:sequence>
+        <xs:attribute type="xs:string" name="PrimaryFlag" use="optional"/>
+        <xs:attribute type="xs:string" name="TypeCode" use="optional"/>
+    </xs:complexType>
+    <xs:complexType name="AlternateKeyType">
+        <xs:sequence>
+            <xs:element name="AlternateID" minOccurs="0">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:enumeration value="
+                        53381903536
+                    "/>
+                        <xs:enumeration value="
+                        NOTFOUND
+                    "/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element type="xs:string" name="AddressLine" minOccurs="0"/>
+            <xs:element type="xs:string" name="AddressLine1" minOccurs="0"/>
+            <xs:element type="xs:string" name="ApartmentNumber" minOccurs="0"/>
+            <xs:element type="xs:string" name="City" minOccurs="0"/>
+            <xs:element type="xs:string" name="State" minOccurs="0"/>
+            <xs:element type="xs:string" name="Territory" minOccurs="0"/>
+            <xs:element type="xs:string" name="PostalCode" minOccurs="0"/>
+            <xs:element type="xs:string" name="Country" minOccurs="0"/>
+            <xs:element ref="xst:Contact" minOccurs="0" xmlns:xst="http://www.datavantagecorp.com/xstore/"/>
+        </xs:sequence>
+        <xs:attribute type="xs:string" name="TypeCode" use="optional"/>
+        <xs:attribute type="xs:string" name="PrimaryFlag" use="optional"/>
+    </xs:complexType>
+    <xs:complexType name="TelephoneType">
+        <xs:sequence>
+            <xs:element type="xs:string" name="FullTelephoneNumber"/>
+            <xs:element ref="xst:ContactFlag" xmlns:xst="http://www.datavantagecorp.com/xstore/"/>
+        </xs:sequence>
+        <xs:attribute type="xs:string" name="PrimaryFlag"/>
+        <xs:attribute type="xs:string" name="TypeCode"/>
+    </xs:complexType>
+    <xs:complexType name="CustomerType">
+        <xs:choice maxOccurs="unbounded" minOccurs="0">
+            <xs:element type="xs:string" name="Name"/>
+            <xs:element type="xs:string" name="ActiveFlag"/>
+            <xs:element type="nam:AddressType" name="Address" xmlns:nam="http://www.nrf-arts.org/IXRetail/namespace/"/>
+            <xs:element type="xs:string" name="eMail"/>
+            <xs:element type="xs:string" name="ContactFlag"/>
+            <xs:element type="xs:string" name="eMailReceipt"/>
+            <xs:element ref="xst:GuestProperty" xmlns:xst="http://www.datavantagecorp.com/xstore/"/>
+            <xs:element ref="xst:CustomerID" xmlns:xst="http://www.datavantagecorp.com/xstore/"/>
+            <xs:element type="nam:AlternateKeyType" name="AlternateKey" maxOccurs="unbounded" minOccurs="0"
+                        xmlns:nam="http://www.nrf-arts.org/IXRetail/namespace/"/>
+            <xs:element type="nam:TelephoneType" name="Telephone"
+                        xmlns:nam="http://www.nrf-arts.org/IXRetail/namespace/"/>
+        </xs:choice>
+    </xs:complexType>
+    <xs:complexType name="RetailTransactionType">
+        <xs:sequence>
+            <xs:element type="nam:LineItemType" name="LineItem" maxOccurs="unbounded" minOccurs="0"
+                        xmlns:nam="http://www.nrf-arts.org/IXRetail/namespace/"/>
+            <xs:element type="nam:TotalType" name="Total" xmlns:nam="http://www.nrf-arts.org/IXRetail/namespace/"/>
+            <xs:element type="xs:string" name="RoundedTotal"/>
+            <xs:element type="nam:CustomerType" name="Customer"
+                        xmlns:nam="http://www.nrf-arts.org/IXRetail/namespace/"/>
+        </xs:sequence>
+        <xs:attribute type="xs:string" name="TransactionStatus"/>
+        <xs:attribute type="xs:string" name="TypeCode"/>
+    </xs:complexType>
+    <xs:complexType name="TransactionType">
+        <xs:sequence>
+            <xs:element ref="xst:OrganizationID" xmlns:xst="http://www.datavantagecorp.com/xstore/"/>
+            <xs:element type="xs:string" name="RetailStoreID"/>
+            <xs:element type="xs:string" name="WorkstationID"/>
+            <xs:element type="xs:string" name="TillID"/>
+            <xs:element ref="xst:CashDrawerID" xmlns:xst="http://www.datavantagecorp.com/xstore/"/>
+            <xs:element type="xs:string" name="SequenceNumber"/>
+            <xs:element type="xs:string" name="BusinessDayDate"/>
+            <xs:element type="xs:string" name="BeginDateTime"/>
+            <xs:element type="xs:string" name="EndDateTime"/>
+            <xs:element type="xs:string" name="OperatorID"/>
+            <xs:element type="xs:string" name="CurrencyCode"/>
+            <xs:element ref="xst:PosTransactionProperties" xmlns:xst="http://www.datavantagecorp.com/xstore/"/>
+            <xs:element type="nam:RetailTransactionType" name="RetailTransaction"
+                        xmlns:nam="http://www.nrf-arts.org/IXRetail/namespace/"/>
+        </xs:sequence>
+        <xs:attribute type="xs:string" name="CancelFlag"/>
+        <xs:attribute type="xs:string" name="OfflineFlag"/>
+        <xs:attribute type="xs:string" name="TrainingModeFlag"/>
+        <xs:attribute ref="xst:AppVersion" xmlns:xst="http://www.datavantagecorp.com/xstore/"/>
+        <xs:attribute ref="xst:TransactionType" xmlns:xst="http://www.datavantagecorp.com/xstore/"/>
+    </xs:complexType>
+    <xs:complexType name="POSLogType">
+        <xs:sequence>
+            <xs:element type="nam:TransactionType" name="Transaction"
+                        xmlns:nam="http://www.nrf-arts.org/IXRetail/namespace/"/>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>
