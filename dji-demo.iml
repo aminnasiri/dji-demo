@@ -109,8 +109,8 @@
     <orderEntry type="library" scope="RUNTIME" name="Maven: ai.djl.mxnet:mxnet-native-mkl:osx-x86_64:1.9.1" level="project" />
     <orderEntry type="library" name="Maven: ai.djl.pytorch:pytorch-model-zoo:0.19.0" level="project" />
     <orderEntry type="library" name="Maven: ai.djl.pytorch:pytorch-engine:0.19.0" level="project" />
-    <orderEntry type="library" scope="RUNTIME" name="Maven: ai.djl.pytorch:pytorch-native-cu102:linux-x86_64:1.11.0" level="project" />
-    <orderEntry type="library" scope="RUNTIME" name="Maven: ai.djl.pytorch:pytorch-jni:1.11.0-0.19.0" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Maven: ai.djl.pytorch:pytorch-native-cu102:linux-x86_64:1.12.1" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Maven: ai.djl.pytorch:pytorch-jni:1.12.1-0.19.0" level="project" />
     <orderEntry type="library" name="Maven: io.quarkus:quarkus-vertx:2.14.1.Final" level="project" />
     <orderEntry type="library" name="Maven: io.quarkus:quarkus-netty:2.14.1.Final" level="project" />
     <orderEntry type="library" name="Maven: io.netty:netty-codec:4.1.82.Final" level="project" />
