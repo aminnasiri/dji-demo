@@ -89,9 +89,9 @@
     <dependency>
       <groupId>ai.djl.pytorch</groupId>
       <artifactId>pytorch-native-cpu</artifactId>
-      <classifier>linux-x86_64</classifier>
-      <scope>runtime</scope>
+      <classifier>osx-x86_64</classifier>
       <version>1.12.1</version>
+      <scope>runtime</scope>
     </dependency>
     <dependency>
       <groupId>ai.djl.pytorch</groupId>
@@ -99,15 +99,6 @@
       <version>1.12.1-0.19.0</version>
       <scope>runtime</scope>
     </dependency>
-    <!--    <dependency>-->
-<!--      <groupId>ai.djl.pytorch</groupId>-->
-<!--      <artifactId>pytorch-native-cpu</artifactId>-->
-<!--      <classifier>osx-x86_64</classifier>-->
-<!--    </dependency>-->
-<!--    <dependency>-->
-<!--      <groupId>ai.djl.pytorch</groupId>-->
-<!--      <artifactId>pytorch-jni</artifactId>-->
-<!--    </dependency>-->
     <dependency>
       <groupId>io.quarkus</groupId>
       <artifactId>quarkus-vertx</artifactId>

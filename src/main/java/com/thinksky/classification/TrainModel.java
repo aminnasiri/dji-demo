@@ -38,8 +38,8 @@ public class TrainModel {
     public void trainModel() {
 //        System.setProperty("offline", "true");
         System.setProperty("ai.djl.default_engine", "PyTorch");
-//        System.setProperty("requires_grad", "True");
-//        System.setProperty("retain_graph", "False");
+        System.setProperty("requires_grad", "True");
+        System.setProperty("retain_graph", "False");
         logger.info("You are using: {} Engine", Engine.getInstance().getEngineName());
         try {
             //Creating Training and Testing dataset
